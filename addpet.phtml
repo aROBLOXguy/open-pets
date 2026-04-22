@@ -1,0 +1,170 @@
+<?php
+	require_once("inc/config.inc.php");
+	require_once("inc/pets.php");
+	$pageheader = "Step 1 - Add a pet";
+	
+	if (!isset($_GET["view"]) or $_GET["view"] == null or $_GET["view"] < 0) {
+	$createnext = "7";
+	$petstart = "0";
+	} else {
+		if (isset($_GET["back"])) {
+			$createnext = $_GET["view"] - 6;
+			$petstart = $_GET["view"] - 12;
+		} else {
+			$createnext = $_GET["view"] +6;
+			$petstart = $_GET["view"];
+		}
+	}
+	
+	function callCount() { 
+		static $calls = "1"; 
+		return $calls++;
+	}
+	
+	if (isset($_GET["species"]) & isset($_GET["step"])) {
+		$petspecies = $_GET["species"];
+		header("Location: /customisepet.phtml?species=$petspecies");
+	}
+ ?>
+<html style="--wm-toolbar-height: 68px;">
+<?php require_once("inc/head.php"); ?>
+
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" >
+ 
+
+<?php require("inc/navtop.php"); ?>
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
+<tbody><tr>
+
+<?php require("inc/sidenav.php");
+if (isset($_SESSION["username"])) { 
+?>
+<td valign="top" width="560"><!--x-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr align="right"> 
+<td><img src="/images/headers/<?php if (isset($_SESSION["username"])) {
+	echo "addpet";
+} else {
+	echo "oops";
+}?>.gif" width="480" height="62" alt="Step 1 - Sign Up with <?=$branding?>"></td>
+</tr></tbody></table><br clear="all">
+<?php 
+
+	if(!isset($_GET["species"])) { ?>
+<p><b>Step 1</b> - Choose your pet's species! Click on the picture for more information about each species. Remember that creating a pet will earn you <b>50</b> Neopoints! You can have up to <b>4</b> Neopets, but no more, as very soon they will begin to get very demanding. If you are just starting out, it may be best for you to just choose one.</p>
+<form>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+	<tbody>
+		
+		<tr align="center"> 
+	<?php foreach ($petslist as $key => $value) {
+		if ($key < $petstart) continue;
+		$number = callCount();
+		
+		if ($key == $createnext) break;
+		$randcolor = rand(1,4);
+		$colorarray = [
+			"1" => "red",
+			"2" => "yellow",
+			"3" => "green",
+			"4" => "blue"
+		]
+		?>
+			<td>
+				<?php //$number. "<br>" . $key."<br>";?>
+				<img src="/images/pets/<?=$value?>_<?=$colorarray[$randcolor]?>_baby.gif">
+				<br>
+				<label for="<?=$value?>"><?=$value?></label>
+				<br>
+				<input type="radio" id="<?=$value?>" name="species" value="<?=$value?>">
+				<?php if ($number / 3 == 1) {?>
+			</td>
+		</tr>
+		<tr align="center">
+				<?php } ?>
+			</td>
+		<?php } ?>
+		
+		
+	</tbody>
+	<tbody>
+		<tr align="center">
+			<td>
+				
+			</td>
+			<td>
+				<?php 
+				if ($petstart < 42) {
+					echo '<input type="hidden" name="view" value="' . $createnext . '">';
+					echo '<button name="next" value="1">Show more pets!</button>';
+				} 
+				
+				if ($petstart != 0 xor $petstart == 1) {
+					echo '<button name="back" value="1">Go back</button>';
+				}
+				?>
+			</td>
+
+			<td>
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				
+			</td>
+			<td align="center">
+				<button name="step" value="2">Next Step</button>
+			</td>
+			<td>
+				
+			</td>
+		</tr>
+	</tbody>
+</table>
+</form>
+<form method="post">
+	<table align="center">
+		<tbody>
+			
+		</tbody>
+	</table>
+</form>
+<?php } else { ?>
+<?php } 
+} else {
+		require_once("inc/loginform.phtml");
+	}?>
+</td>
+</tr> </tbody></table>
+<!-- This is the start of the footer file -->
+</td></tr>
+</tbody></table><br clear="all">
+
+<?php require("inc/bottom.php"); ?>
+<br clear="all"><br>
+
+<!--
+     FILE ARCHIVED ON 05:50:00 Feb 01, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:33:41 Feb 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.646
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.032
+  esindex: 0.009
+  cdx.remote: 29.904
+  LoadShardBlock: 300.959 (3)
+  PetaboxLoader3.resolve: 210.62 (4)
+  PetaboxLoader3.datanode: 151.002 (4)
+  load_resource: 165.766
+  nav: 0.243 (6)
+--></body></html>
+	

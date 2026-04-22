@@ -1,0 +1,134 @@
+<?php
+	require_once("inc/config.inc.php");
+	$pageheader = "$branding - Search";
+ ?>
+<html style="--wm-toolbar-height: 68px;">
+<?php require_once("inc/head.php"); ?>
+
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" >
+ 
+
+<?php require("inc/navtop.php"); ?>
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
+<tbody><tr>
+
+<?php require("inc/sidenav.php");
+ if (isset($_SESSION["username"])) { 
+
+?><td valign="top" width="560"><!--x-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr align="right"> 
+<td><img src="/images/headers/search.gif" width="480" height="62" alt="<?=$branding?> - Pet Central"></td>
+</tr></tbody></table><br clear="all">
+<?php require_once("inc/randomevent.php");?>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+	<tbody>
+		
+		<tr align="left"> 
+			<td width="70%">
+ <p><b>Search Results - (<a href="#">click here for help</a>)</b></p>
+				<?php
+				$usersearch = htmlspecialchars($_POST["string"]);
+				
+				if ($usersearch != "") {
+				$petssql = "SELECT * FROM `pets` WHERE `name` LIKE ?";
+				if($petquery = $db->prepare($petssql)) { 
+					$petquery->bind_param("s", $usersearch);
+					$petquery->execute();
+					$pexequer = $petquery->get_result();
+					if ($pexequer != false) {
+						$getpnumer = mysqli_num_rows($pexequer);
+						if ($getpnumer >= 2) {
+							echo "found " . $getpnumer . " pets";
+						} else if ($getpnumer == 1) {
+							echo "found " . $getpnumer . " pet";
+						} else {
+							echo "found no pets :(";
+						}
+						
+						if ($getpnumer != 0) {
+							
+						}
+					} else {
+						echo "found 0 results";
+					}
+					$petquery->close();
+					$pexequer->close();
+					
+				} else {
+					$error = $db->errno . ' ' . $db->error;
+					echo $error; // 1054 Unknown column 'foo' in 'field list'
+				}
+				echo "<hr>";
+				
+				$sql = "SELECT * FROM `users` WHERE `username` LIKE ?";
+				if($query = $db->prepare($sql)) { 
+					$query->bind_param("s", $usersearch);
+					$query->execute();
+					$exequer = $query->get_result();
+					if ($exequer != false) {
+						$getnumer = mysqli_num_rows($exequer);
+						echo '<b> Searching "' . $usersearch . '" in users</b>';
+						echo "<br>";
+						if ($getnumer >= 2) {
+							echo "found " . $getnumer . " users";
+						} else {
+							echo "found " . $getnumer . " user";
+						}
+					} else {
+						echo "found 0 results";
+					}
+					$query->close();
+					$exequer->close();
+					
+				} else {
+					$error = $db->errno . ' ' . $db->error;
+					echo $error; // 1054 Unknown column 'foo' in 'field list'
+				}
+				} else {
+					echo "you must input something";
+				}
+				
+				?>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<?php } else {
+		require_once("inc/loginform.phtml");
+	}?>
+</td>
+</tr> </tbody></table>
+<!-- This is the start of the footer file -->
+</td></tr>
+</tbody></table><br clear="all">
+
+<?php require("inc/bottom.php"); ?>
+<br clear="all"><br>
+
+<!--
+     FILE ARCHIVED ON 05:50:00 Feb 01, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:33:41 Feb 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.646
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.032
+  esindex: 0.009
+  cdx.remote: 29.904
+  LoadShardBlock: 300.959 (3)
+  PetaboxLoader3.resolve: 210.62 (4)
+  PetaboxLoader3.datanode: 151.002 (4)
+  load_resource: 165.766
+  nav: 0.243 (6)
+--></body></html>
+	

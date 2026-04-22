@@ -1,0 +1,203 @@
+<?php
+	require_once("inc/config.inc.php");
+	$pageheader = "$branding - Pet Central";
+ ?>
+<html style="--wm-toolbar-height: 68px;">
+<?php require_once("inc/head.php"); ?>
+
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" >
+ 
+
+<?php require("inc/navtop.php"); ?>
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
+<tbody><tr>
+
+<?php require("inc/sidenav.php");
+ if (isset($_SESSION["username"])) { 
+
+?><td valign="top" width="560"><!--x-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr align="right"> 
+<td><img src="/images/headers/customisepet.gif" width="480" height="62" alt="Step 2 - Customize your <?=$brandingsingle?>!"></td>
+</tr></tbody></table><br clear="all">
+
+<script>
+	const cars = ["Buggy", "Awesome", "Bed", "Ducky", "Sloth"]
+	
+	function get_name() {
+		let username = document.getElementById('inputname');
+		document.getElementById('petname').innerHTML = username.value;
+	}
+
+	function rtpetcolor() {
+        let colorget = document.getElementById('colorselect').value;
+        document.getElementById('petview').src = "/images/pets/<?=$_GET["species"]?>_" + colorget + "_baby.gif";
+        document.getElementById('petview').alt = "<?=$_GET["species"]?>_" + colorget + "_baby.gif";
+    }
+	
+	 function randomname() {
+        let randNumb = Math.floor(Math.random() * 1000);
+        let randPart1 = Math.floor(Math.random() * 5);
+        let randPart2 = Math.floor(Math.random() * 5);
+        let randUser = cars[randPart1] + cars[randPart2] + randNumb;
+        document.getElementById('inputname').value = randUser;
+		document.getElementById('petname').innerHTML = randUser;
+    }
+</script>
+<p><b>Step 2 - Name your <?=$branding?></b></p>
+<p>Now you must choose the colour, gender and personality of your pet. This will shape how your pet interacts with the other pets in the land of Neopia. If you cant think of a name, simply click Randomise, and then Create Your Pet.</p>
+<form action="/makepet.phtml" method="post">
+<input type="hidden" name="species" value="<?=$_GET["species"]?>">
+	<table align="center" width="530" border="0" cellspacing="0" cellpadding="3">
+		<tbody>
+			<tr align="left">
+				<td>
+				<b>Species</b>
+				</td>
+				<td>
+				<p><?=$_GET["species"]?></p>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+				<b><?=$brandingsingle?> Name</b>
+				<br>
+				<small>(letters and numbers only, please)</small>
+				</td>
+				<td>
+				<input type="text" oninput="get_name()" id="inputname" name="petname" maxlength="20" width="50" value="uhhh">&nbsp;<input type="button" onclick="randomname()" value="Randomize!">
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+				<b>Gender</b>
+				</td>
+				<td>
+				<select name="gender">
+					<option value="other" selected="">Other</option>
+					<option value="female">Female</option>
+					<option value="male">Male</option>
+				</select>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+				<b>Colour</b>
+				</td>
+				<td>
+				<select name="colour" id="colorselect" onclick="rtpetcolor()">
+					<option value="red">Red</option>
+					<option value="yellow">Yellow</option>
+					<option value="green">Green</option>
+					<option value="blue">Blue</option>
+				</select>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+				<b>Where does your <?=$brandingsingle?> likes to live?</b>
+				</td>
+				<td>
+				<select name="lives">
+					<option value="0">Forest</option>
+					<option value="1">Sea</option>
+					<option value="2">River</option>
+					<option value="3">Jungle</option>
+					<option value="4">Town</option>
+					<option value="5">City</option>
+					<option value="6">Mountains</option>
+					<option value="7">Wilderness</option>
+				</select>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+				<b>What does your <?=$brandingsingle?> likes doing?</b>
+				</td>
+				<td>
+				<select name="does">
+					<option value="0">Gathering Food</option>
+					<option value="1">Exploring the Land</option>
+					<option value="2">Making Friends</option>
+					<option value="3">Hunting for Treasure</option>
+					<option value="4">Pestering Others</option>
+					<option value="5">Reading and Learning</option>
+				</select>
+				</td>
+			</tr>
+			<tr align="left">
+				<td>
+				<b>How does your <?=$brandingsingle?> greet others?</b>
+				</td>
+				<td>
+				<select name="greeting">
+					<option value="0">Act Very Friendly</option>
+					<option value="1">Smile Sweetly</option>
+					<option value="2">Approach with Caution</option>
+					<option value="3">Stand their Ground</option>
+					<option value="4">Run Awaaaay!!!</option>
+					<option value="5">Insult from Afar</option>
+					<option value="6">Attack if they are Weaker</option>
+					<option value="7">Try and make Friends</option>
+				</select>
+				</td>
+			</tr>
+		</tbody>
+		
+	</table>
+	<table align="center">
+	<tbody>
+			<tr align="center">
+				<td>
+					<button>Create '<span id="petname" margin="0"></span> the <?=$_GET["species"]?>'</button>
+				</td>
+				
+			</tr>
+			<tr>
+				<td>
+					<center>
+					<img id="petview" src="/images/pets/<?=$_GET["species"]?>_red_baby.gif">
+					<p><b>My New <?=$_GET["species"]?>!</b></p>
+					</center>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+</form>
+
+
+<?php } else {
+		require_once("inc/loginform.phtml");
+	}?>
+</td>
+</tr> </tbody></table>
+<!-- This is the start of the footer file -->
+</td></tr>
+</tbody></table><br clear="all">
+
+<?php require("inc/bottom.php"); ?>
+<br clear="all"><br>
+
+<!--
+     FILE ARCHIVED ON 05:50:00 Feb 01, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:33:41 Feb 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.646
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.032
+  esindex: 0.009
+  cdx.remote: 29.904
+  LoadShardBlock: 300.959 (3)
+  PetaboxLoader3.resolve: 210.62 (4)
+  PetaboxLoader3.datanode: 151.002 (4)
+  load_resource: 165.766
+  nav: 0.243 (6)
+--></body></html>
+	

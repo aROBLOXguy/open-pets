@@ -1,0 +1,147 @@
+<?php
+	require_once("inc/config.inc.php");
+	$pageheader = "Step 1 - Sign up with $branding";
+ ?>
+<html style="--wm-toolbar-height: 68px;">
+<?php require_once("inc/head.php"); ?>
+
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" onload="MM_preloadImages('https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_chat_on.gif', 'https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_store_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_create_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_games_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_help_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_login_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_logout_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_messages_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_news_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_petcentral_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_prefs_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_shops_on.gif','https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_world_on.gif', 'https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_explore_on.gif', 'https://web.archive.org/web/20010201055000/http://images.<?=$branding?>.com/images/menu/menu_neodrive_on.gif');">
+ 
+
+<?php require("inc/navtop.php"); ?>
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
+<tbody><tr>
+
+<?php require("inc/sidenav.php");?>
+
+<td valign="top" width="560"><!--x-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr align="right"> 
+<td><img src="/images/headers/signup.gif" width="480" height="62" alt="Step 1 - Sign Up with <?=$branding?>"></td>
+</tr></tbody></table><br clear="all"><p>
+
+<table align="center">
+<tbody><tr><td>
+<img src="/images/images/signup/spacefaerie2.gif" border="0">
+</td><td>
+<b>Welcome to <?=$branding?></b>
+<p>
+Select your age below to sign up for your own Virtual <?=$brandingsingle?>!  It only takes a few seconds, and getting
+an account is <b>completely FREE</b>.
+</p><p>
+Feed your pet, play with it, adventure around <?=$brandingspace?>, play over <b>90</b> games and
+enter our competitions.  There is so much to do!
+</p></td></tr>
+</tbody></table>
+<br>
+</p><center>
+
+
+<center>
+<table width="500" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffff99">
+  <tbody><tr>
+    <td height="10"><img src="/images/images/table_top_left.gif" width="12" height="10"></td>
+    <td><img src="/images/images/table_top.gif" width="480" height="10"></td>
+    <td height="10"><img src="/images/images/table_top_right.gif" width="12" height="10"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" background="/images/images/yellow_table_left.gif"></td>
+    <td valign="center">
+
+
+<!-- Start the inner table -->
+<table cellpadding="3" cellspacing="0" align="center" width="400">
+<tbody><tr>
+<td align="center" colspan="2"><b>
+<font color="red" size="+1"><b>- Sign up with <?=$branding?> -</b></font>
+<br><br>
+</b></td>
+</tr>
+
+<tr>
+<td colspan="2">
+<b>My age is (click one) : </b>
+<br><br>
+</td>
+</tr>
+
+<tr>
+
+<td align="center">
+<a href="signup_u12.phtml?agegroup=1" onclick="window.open('signuphelper.phtml?species=chia&amp;colour=yellow', 'popup', 'status=no,menubar=no,scrollbars=no,resizable=no,toolbar=no,scrolling=no,width=200,height=220')">
+<img src="/images/pets/happy/cybunny_blue_baby.gif" width="150" height="150" border="1">
+<br><b>8 and under</b></a><br><br>
+</td>
+
+<td align="center">
+<a href="signup_u12.phtml?agegroup=2" onclick="window.open('signuphelper.phtml?species=chia&amp;colour=yellow', 'popup', 'status=no,menubar=no,scrollbars=no,resizable=no,toolbar=no,scrolling=no,width=200,height=220')">
+<img src="/images/pets/happy/chia_yellow_baby.gif" width="150" height="150" border="1">
+<br><b>9 to 12</b></a><br><br>
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+<a href="signup.phtml?agegroup=3">
+<img src="/images/pets/happy/kougra_red_baby.gif" width="150" height="150" border="1">
+<br><b>13 to 17</b></a>
+</td>
+
+<td align="center">
+<a href="signup.phtml?agegroup=4">
+<img src="/images/pets/happy/techo_green_baby.gif" width="150" height="150" border="1">
+<br><b>18 and over</b></a>
+</td>
+
+</tr>
+</tbody></table>
+    </td>
+    <td align="right" valign="top" background="/images/images/yellow_table_right.gif"></td>
+  </tr>
+  <tr>
+    <td><img src="/images/images/table_bottom_left.gif" width="12" height="10"></td>
+    <td><img src="/images/images/table_bottom.gif" width="480" height="10"></td>
+    <td><img src="/images/images/table_bottom_right.gif" width="12" height="10"></td>
+  </tr>
+</tbody></table>   
+</center>
+
+</center>
+<p>
+<b>IMPORTANT</b> - Some of the <?=$branding?> activities and games will let you get Neopoints or items once per day
+(such as the Tombola, Snowager, Fruit Machine or Shrine).  Please do not create multiple accounts to play these
+activities.  These activities are limited to <b>one account per person</b>.  Thanks!
+<!--footer-->
+</p></td>
+ </tr> </tbody></table>
+<!-- This is the start of the footer file -->
+</td></tr>
+</tbody></table><br clear="all">
+
+<?php require("inc/bottom.php"); ?>
+<br clear="all"><br>
+
+<!--
+     FILE ARCHIVED ON 05:50:00 Feb 01, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:33:41 Feb 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.646
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.032
+  esindex: 0.009
+  cdx.remote: 29.904
+  LoadShardBlock: 300.959 (3)
+  PetaboxLoader3.resolve: 210.62 (4)
+  PetaboxLoader3.datanode: 151.002 (4)
+  load_resource: 165.766
+  nav: 0.243 (6)
+--></body></html>

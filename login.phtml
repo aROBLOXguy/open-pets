@@ -1,0 +1,67 @@
+<?php
+require('inc/config.inc.php');
+if (!isset($_SESSION["username"])) {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+	var_dump($_POST);
+	$dest = $_POST["destination"];
+	$username = htmlspecialchars($_POST["username"]);
+	$password = htmlspecialchars($_POST["password"]);
+	$errarr = array();
+	
+	if (str_contains($dest, "/") & str_contains($dest, ".phtml") & !str_contains($dest, "https://")) {
+		if (strlen($username) > 20 or strlen($username) == 0) {
+			header("Location: /badpassword.phtml");
+		} else {
+			$checkuser = $db->prepare("SELECT `username` FROM `users` WHERE `username` = ?");
+		$checkuser->bind_param("s", $username);
+		$checkuser->execute();
+		$checkuresult = $checkuser->get_result();
+		$checkuresult2 = mysqli_num_rows($checkuresult);
+		if ($checkuresult2 == 0) {
+			header("Location: /badpassword.phtml");
+		}
+		$checkuser->close();
+		
+		$getpass = $db->prepare("SELECT password FROM `users` WHERE `username` = ?");
+		$getpass->bind_param("s", $username);
+		$getpass->execute();
+		$getpass->bind_result($dbpass);
+		$getpass->fetch();
+		
+		$cookiepass = base64_encode($password);
+		$cookiestring = "$username+$cookiepass";
+		
+		if (password_verify($password, $dbpass)) {
+			$getpass->close();
+			$logindate = date("Y-m-d G:i:s");
+			$stmt = $db->prepare("UPDATE `users` SET `lastlogin`=? WHERE `username` = ?");
+			$stmt->bind_param("ss", $logindate, $username);
+			$stmt->execute();
+			if (isset($_GET["userpass"]) and $_GET["userpass"] == "on") {
+				$_SESSION['username'] = $username;
+				$_SESSION['password'] = $password;
+			} else {
+				setcookie("login", $cookiestring, strtotime("+12 months"));
+				$_SESSION['username'] = $username;
+				$_SESSION['password'] = $password;
+				echo "cookie start";
+			}
+			echo "yay";
+			header("Location: $dest");
+			$stmt->close();
+		} else {
+			header("Location: /badpassword.phtml");
+		}
+		}
+		
+		
+	} else {
+		header("Location: /badpassword.phtml");
+	}
+} else {
+	die('<img src="/images/headers/oops.gif" alt="Error! Oh deary me!"><p><b>Error 1</b> : Login did not post data!</p><img onclick="window.history.go(-1)" src="/images/images/error_back.gif">');
+}
+} else {
+	die('<img src="/images/headers/oops.gif" alt="Error! Oh deary me!"><p><b>Error 1</b> : Already Logged in!</p><img onclick="window.history.go(-1)" src="/images/images/error_back.gif">');
+}
+?>

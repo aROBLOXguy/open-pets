@@ -1,0 +1,92 @@
+<?php
+	require_once("inc/config.inc.php");
+	$pageheader = "$branding - Pet Central";
+ ?>
+<html style="--wm-toolbar-height: 68px;">
+<?php require_once("inc/head.php"); ?>
+
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" >
+ 
+
+<?php require("inc/navtop.php"); ?>
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
+<tbody><tr>
+
+<?php require("inc/sidenav.php");
+ if (isset($_SESSION["username"])) { 
+
+?><td valign="top" width="560"><!--x-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr align="right"> 
+<td><img src="/images/headers/petcentral.gif" width="480" height="62" alt="<?=$branding?> - Pet Central"></td>
+</tr></tbody></table><br clear="all">
+<?php require_once("inc/randomevent.php");?>
+<br clear="all">
+<map name="navbar">
+    <area target="" alt="quick ref" title="quick ref" href="/quickref.phtml" coords="48,59,2,1" shape="rect">
+    <area target="" alt="abilities" title="abilities" href="" coords="55,0,97,59" shape="rect">
+    <area target="" alt="description" title="description" href="" coords="101,0,159,59" shape="rect">
+    <area target="" alt="trophies" title="trophies" href="" coords="163,0,212,60" shape="rect">
+    <area target="" alt="petpage" title="petpage" href="" coords="216,1,271,60" shape="rect">
+    <area target="" alt="feedpet" title="feedpet" href="" coords="275,1,326,60" shape="rect">
+    <area target="" alt="items" title="items" href="" coords="329,1,392,60" shape="rect">
+    <area target="" alt="neohome" title="neohome" href="" coords="395,0,446,60" shape="rect">
+    <area target="" alt="beauty" title="beauty" href="" coords="450,0,500,60" shape="rect">
+</map>
+<img src="/images/images/toolbar_pc.gif" usemap="#navbar">
+<br clear="all">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+	<tbody>
+		
+		<tr align="left"> 
+			<td width="70%">
+				<p><b>Welcome to Pet Central!!!</b><br>Pet Central is the main page for <!--<?=$branding?>--> NeoPets. You can do just about anything pet related from here. Just click on one of the options above. If you are new to the site, and you just created a pet, check out the shops and buy some food and toys for it. Also, try playing our other fun games like <a href="#">Korbat's Lab</a> and <a href="#">Sakhmet Solitaire</a>.</p>
+			</td>
+			
+			<td>
+				<a href="/quickref.phtml">
+					<img width="100" src="/images/images/smallsendpet.gif">
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<?php } else {
+		require_once("inc/loginform.phtml");
+	}?>
+</td>
+</tr> </tbody></table>
+<!-- This is the start of the footer file -->
+</td></tr>
+</tbody></table><br clear="all">
+
+<?php require("inc/bottom.php"); ?>
+<br clear="all"><br>
+
+<!--
+     FILE ARCHIVED ON 05:50:00 Feb 01, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:33:41 Feb 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.646
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.032
+  esindex: 0.009
+  cdx.remote: 29.904
+  LoadShardBlock: 300.959 (3)
+  PetaboxLoader3.resolve: 210.62 (4)
+  PetaboxLoader3.datanode: 151.002 (4)
+  load_resource: 165.766
+  nav: 0.243 (6)
+--></body></html>
+	

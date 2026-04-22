@@ -1,0 +1,138 @@
+<?php
+	require_once("inc/config.inc.php");
+	$pageheader = "$branding - Pet Central";
+ ?>
+<html style="--wm-toolbar-height: 68px;">
+<?php require_once("inc/head.php"); ?>
+
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" >
+ 
+
+<?php require("inc/navtop.php"); ?>
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
+<tbody><tr>
+
+<?php require("inc/sidenav.php");
+ if (isset($_SESSION["username"])) { 
+ if (!isset($_GET["type"]) or $_GET["type"] != "shop") {
+?><td valign="top" width="560"><!--x-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr align="right"> 
+<td><img src="/images/headers/market.gif" width="480" height="62" alt="The Marketplace"></td>
+</tr></tbody></table><br clear="all">
+<?php require_once("inc/randomevent.php");?>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+	<tbody>
+		<tr>
+			<td>
+				<p><b>Neopian Central</b></p>
+				<p>Click on the shop you wish to visit. You can buy food or toys for your pet, collect rare items and trading cards, and even buy clothes.</p>
+				<p><b>The shops restock roughly 7 times every hour!</b></p>
+				<p>To see the rest of the shops click the left of the main oval on the toolbar above!</p>
+			</td>
+		</tr>
+		<tr align="left"> 
+			<td align="center">
+				<map name="neopia">
+    <area target="" alt="rainbowpool" title="rainbowpool" href="/pool/index.phtml" coords="165,228,176,245,195,258,253,264,298,256,307,234,270,216,225,214,188,206,174,210,164,218" shape="poly">
+	
+    <area target="" alt="pharmacy" title="pharmacy" href="/objects.phtml?type=shop&obj_type=13" coords="114,257,121,292,125,329,153,337,186,332,187,284,184,262,169,241,147,234,127,242" shape="poly">
+	
+    <area target="" alt="bookshop" title="bookshop" href="/objects.phtml?type=shop&obj_type=7" coords="299,100,321,114,349,116,377,100,379,46,365,9,333,6,310,13,308,39,306,66,296,85,296,93" shape="poly">
+	
+    <area target="" alt="moneytree" title="moneytree" href="/donations.phtml" coords="137,183,133,203,204,205,231,199,241,161,239,113,221,107,137,110,129,128,116,152,116,171" shape="poly">
+	
+    <area target="" alt="auctionhouse" title="auctionhouse" href="/auctions.phtml" coords="1,152,64,160,87,147,91,122,62,108,54,84,28,59,13,62,2,67,3,147,1,107" shape="poly">
+	
+    <area target="" alt="foodshop" title="foodshop" href="/objects.phtml?type=shop&obj_type=1" coords="202,88,221,102,250,103,273,96,279,81,277,48,287,17,260,2,233,3,216,20,205,41,200,64" shape="poly">
+	
+    <area target="" alt="neopianbank" title="neopianbank" href="/neopianbank.phtml" coords="142,88,155,102,194,96,198,43,194,9,167,5,148,7,135,22" shape="poly">
+	
+    <area target="" alt="hospital" title="hospital" href="/hospital.phtml" coords="134,108,81,122,59,104,59,56,76,30,90,26,100,27,110,29,119,32,126,41,129,55,137,62" shape="poly">
+	
+    <area target="" alt="guildhq" title="guildhq" href="/guildhq.phtml" coords="371,117,410,133,449,161,449,33,412,28,393,33,375,47,378,61,384,75" shape="poly">
+	
+    <area target="" alt="moreshop" title="moreshop" href="/market_bazaar.phtml" coords="8,165,74,225" shape="rect">
+	
+    <area target="" alt="neopetstuff" title="neopetstuff" href="" coords="83,336,83,375,77,401,101,420,168,418,183,395,169,369,152,347,138,334,117,337,102,321" shape="poly">
+	
+    <area target="" alt="neolodge" title="neolodge" href="/neolodge.phtml" coords="199,303,201,385,188,400,194,416,217,420,238,420,262,421,289,420,303,414,316,402,317,381,291,363,289,296,214,294" shape="poly">
+	
+    <area target="" alt="petpetsshop" title="petpetsshop" href="/objects.phtml?type=shop&obj_type=25" coords="296,355,310,365,348,360,368,349,368,294,347,263,306,267,296,282,300,302,293,318" shape="poly">
+	
+    <area target="" alt="pricechanges" title="pricechanges" href="" coords="371,339,423,347,448,329,447,313,424,280,369,280" shape="poly">
+	
+    <area target="" alt="magicshop" title="magicshop" href="" coords="22,331,53,337,62,355,76,366,77,414,36,416,1,414,1,349,6,338" shape="poly">
+	
+    <area target="" alt="artcentre" title="artcentre" href="" coords="346,171,450,259" shape="rect">
+	
+    <area target="" alt="99dogsstore" title="99dogsstore" href="" coords="49,232,78,243,77,260,87,277,101,291,96,302,93,317,69,328,37,324,21,296,31,270,23,247" shape="poly">
+	
+    <area target="" alt="hollywoodrecords" title="hollywoodrecords" href="" coords="412,347,370,354,371,373,341,387,347,412,367,424,446,424,447,354" shape="poly">
+	
+				</map>
+				<img src="/images/images/neopia-central_old_map_04.gif" usemap="#neopia" >
+				<p></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+ <?php } else {?>
+	 <td valign="top" width="560"><!--x-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr align="right"> 
+<td><img src="/images/headers/shops/<?=$_GET['obj_type']?>.gif" width="480" height="62" alt="Shop"></td>
+</tr></tbody></table><br clear="all">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+	<tbody>
+		<tr>
+			<td>
+				idk how to do this
+				<form>
+				
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+	 <?php
+	 }
+} else {
+		require_once("inc/loginform.phtml");
+	}?>
+</td>
+</tr> </tbody></table>
+<!-- This is the start of the footer file -->
+</td></tr>
+</tbody></table><br clear="all">
+
+<?php require("inc/bottom.php"); ?>
+<br clear="all"><br>
+
+<!--
+     FILE ARCHIVED ON 05:50:00 Feb 01, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:33:41 Feb 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.646
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.032
+  esindex: 0.009
+  cdx.remote: 29.904
+  LoadShardBlock: 300.959 (3)
+  PetaboxLoader3.resolve: 210.62 (4)
+  PetaboxLoader3.datanode: 151.002 (4)
+  load_resource: 165.766
+  nav: 0.243 (6)
+--></body></html>
+	

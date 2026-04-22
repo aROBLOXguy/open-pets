@@ -1,0 +1,415 @@
+<?php
+	require_once("inc/config.inc.php");
+	$pageheader = "Step 1 - Sign up with $branding";
+ ?>
+<html style="--wm-toolbar-height: 68px;">
+<?php require_once("inc/head.php"); ?>
+
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" >
+ 
+
+<?php require("inc/navtop.php"); ?>
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
+<tbody><tr>
+
+<?php require("inc/sidenav.php");
+ if (!isset($_SESSION["username"])) { 
+
+?>
+<td valign="top" width="560"><!--x-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr align="right"> 
+<td><img src="/images/headers/signup.gif" width="480" height="62" alt="Step 1 - Sign Up with <?=$branding?>"></td>
+</tr></tbody></table><br clear="all"><p>
+
+Please fill in the following form to sign up with NeoPets.   It's really simple to do, and it's all
+you need to get started!
+</p><p>
+There are a few <a href="terms.phtml" target="newpage"><b>Terms and Conditions</b></a> that you must agree to
+in order to play the site.  If you agree to these then please check the box on the form below.
+
+<br><br>
+
+
+</p><center>
+
+<table width="500" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffff99">
+  <tbody><tr>
+    <td height="10" width="50%"><img src="/images/images/table_top_left.gif" width="12" height="10"></td>
+    <td valign="top"><img src="/images/images/table_top.gif" width="480" height="10"></td>
+    <td height="10"><img src="/images/images/table_top_right.gif" width="12" height="10"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" background="/images/images/yellow_table_left.gif"></td>
+    <td valign="middle">
+
+     <form action="process_signup.phtml" method="post" name="signupform">
+
+      <table cellpadding="5" cellspacing="0" border="0" width="480" align="center">
+        <tbody><tr>
+          <td align="center" colspan="2">
+            <b><font color="red" size="+1">- Signup with <?=$branding?> -</font></b>
+          </td>
+        </tr>
+        <tr>
+          <td width="50%">
+              <b>User Name</b><br>(20 characters max)
+          </td>
+          <td width="50%">
+              <input type="text" name="username" size="15" maxlength="20">
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <b>Password</b>
+          </td>
+          <td>
+              <input type="password" name="pass1" size="15" maxlength="20">
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <b>Confirm Password</b>
+          </td>
+          <td>
+              <input type="password" name="pass2" size="15" maxlength="20">
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <b>Your E-mail Address</b>
+              <br><font size="-2"><i>This must be a correct address; <?=$branding?> will occassionally
+              send you email regarding your pet and special offers.</i></font>
+          </td>
+          <td valign="top">
+              <input type="text" name="email" size="15" maxlength="60">
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+              <b>Country</b>
+          </td>
+          <td valign="top">
+              <?php require_once("inc/signup.country.html");?>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><b>Date of Birth</b>
+          </td>
+          <td>
+              <?php require_once("inc/signup.month.html");?>
+
+              &nbsp;
+
+              <?php require_once("inc/signup.day.html");?>
+
+              <p>
+
+              <select name="year">
+              <option selected="" value="">Year
+            </option><option>1989
+</option><option>1988
+</option><option>1987
+</option><option>1986
+</option><option>1985
+</option><option>1984
+</option><option>1983
+</option><option>1982
+</option><option>1981
+</option><option>1980
+</option><option>1979
+</option><option>1978
+</option><option>1977
+</option><option>1976
+</option><option>1975
+</option><option>1974
+</option><option>1973
+</option><option>1972
+</option><option>1971
+</option><option>1970
+</option><option>1969
+</option><option>1968
+</option><option>1967
+</option><option>1966
+</option><option>1965
+</option><option>1964
+</option><option>1963
+</option><option>1962
+</option><option>1961
+</option><option>1960
+</option><option>1959
+</option><option>1958
+</option><option>1957
+</option><option>1956
+</option><option>1955
+</option><option>1954
+</option><option>1953
+</option><option>1952
+</option><option>1951
+</option><option>1950
+</option><option>1949
+</option><option>1948
+</option><option>1947
+</option><option>1946
+</option><option>1945
+</option><option>1944
+</option><option>1943
+</option><option>1942
+</option><option>1941
+</option><option>1940
+</option><option>1939
+</option><option>1938
+</option><option>1937
+</option><option>1936
+</option><option>1935
+</option><option>1934
+</option><option>1933
+</option><option>1932
+</option><option>1931
+</option><option>1930
+</option><option>1929
+</option><option>1928
+</option><option>1927
+</option><option>1926
+</option><option>1925
+</option><option>1924
+</option><option>1923
+</option><option>1922
+</option><option>1921
+</option><option>1920
+</option><option>1919
+</option><option>1918
+</option><option>1917
+</option><option>1916
+</option><option>1915
+</option><option>1914
+</option><option>1913
+</option><option>1912
+</option><option>1911
+</option><option>1910
+</option><option>1909
+</option><option>1908
+</option><option>1907
+</option><option>1906
+</option><option>1905
+</option><option>1904
+</option><option>1903
+</option><option>1902
+</option><option>1901
+              </option></select>
+          </p></td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <b>Gender</b>
+          </td>
+          <td align="left">
+            <input type="radio" name="gender" value="Male"> Male
+            &nbsp;
+            <input type="radio" name="gender" value="Female"> Female
+			&nbsp;
+            <input type="radio" name="gender" value="Other"> Other
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+            <b>I agree to the <a href="terms.phtml" target="newpage">Terms and Conditions</a></b> </td>
+          
+          <td><input type="checkbox" name="terms" checked="">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+<br><br>
+            <img src="/images/buttons/signup_bar1.gif" width="450" height="40" border="0">
+          </td>
+        </tr>
+     </tbody></table>
+
+      <center>
+       <b> Joining these sponsors helps keep <?=$branding?> FREE!</b><br> 
+      </center>
+
+
+      
+
+
+<!-- Show offers -->
+
+
+
+
+
+
+
+
+<!--
+            <p></p><hr width="50%" size="1" noshade=""><p>
+
+           <table border="0" width="90%" align="center" cellpadding="1" cellspacing="0">
+             <tbody><tr>
+              <td valign="top"><input type="checkbox" name="cinemascore_opt"></td>
+              <td valign="top">Yes, sign me up for the <font color="red"><b>CinemaScore Online Newsletter</b></font>, so I can see the "grades" for today's top movies. 
+                 Subscribe for free, and see the reviews for all of the latest releases.
+              </td>
+             </tr>
+           </tbody></table>
+-->
+
+
+
+
+<!--
+      </p><p></p><hr width="50%" size="1" noshade=""><p>
+    
+           <table align="center" width="90%" border="0" cellpadding="1" cellspacing="0">
+             <tbody><tr valign="top">
+              <td><input type="checkbox" name="popstar"></td>
+              <td>
+        
+                Teen Girls!! Yes, please sign me up for <font color="blue"><b>PopStar! Magazine</b></font>!  I want the latest news on my
+                favorite bands, such as <b><font color="red">Eden's Crush</font></b> and <b><font color="red">Aaron Carter</font></b>.
+               </td>
+             </tr>
+           </tbody></table>
+-->
+
+<!-- removed by adam
+      <p><hr width=50% size=1 noshade><p>
+    
+           <table align=center width=90% border=0 cellpadding=1 cellspacing=0>
+             <tr valign=top>
+              <td><input type=checkbox name=webmd_asthma checked></td>
+              <td>
+		<b>Breathe Easier This Year</b> with a <b>FREE</b> subscription to the <font color=blue><b>WebMD</b></font> Asthma Newsletter. Keep up with the latest
+		developments in advanced therapies and treatments.
+              </td>
+             </tr>
+           </table>
+ //-->
+
+
+<!--
+      </p><p></p><hr width="50%" size="1" noshade=""><p>
+ 
+           <table align="center" width="90%" border="0" cellpadding="1" cellspacing="0">
+             <tbody><tr valign="top">
+              <td><input type="checkbox" name="ym_er" checked=""></td>
+              <td>
+		Yes, tell me how to sign up for two totally free years of <font color="blue"><b>YM Magazine</b></font>.  I want 20
+		Free issues, and no shipping charges or fees of any sort.
+               </td>
+             </tr>
+           </tbody></table> 
+-->
+
+<!-- removed by adam
+      <p><hr width=50% size=1 noshade><p>
+    
+           <table align=center width=90% border=0 cellpadding=1 cellspacing=0>
+             <tr valign=top>
+              <td><input type=checkbox name=webmd_diabetes checked></td>
+              <td>
+		Get a <b>FREE</b> subscription to the <b><font color=blue>WebMD</font> Diabetes Newsletter</b>, and keep up with the latest developments in therapies,
+		treatments and diets; ask our experts a question or join a chat.
+              </td>
+             </tr>
+           </table>
+//-->
+<!-- removed by adam
+      <p><hr width=50% size=1 noshade><p>
+    
+           <table align=center width=90% border=0 cellpadding=1 cellspacing=0>
+             <tr valign=top>
+              <td><input type=checkbox name=webmd_heartburn checked></td>
+              <td>
+		<b>Tame your Stomach Pains</b> with a <b>FREE</b> subscription to the <font color=blue><b>WebMD</b></font> Heartburn Newsletter. Keep up with the latest
+		advancements in heartburn relief and prevention, or ask our experts a question. All from the #1 Health Resource. 
+              </td>
+             </tr>
+           </table>
+//-->
+
+
+
+
+<!--
+      </p><p></p><hr width="50%" size="1" noshade=""><p>
+ 
+           <table align="center" width="90%" border="0" cellpadding="1" cellspacing="0">
+             <tbody><tr valign="top">
+              <td><input type="checkbox" name="mypoints_opt" checked=""></td>
+              <td>
+		Earn free rewards like CDs, movies, vacations and more. With <font color="blue"><b>MyPoints</b></font>, you
+		earn Points toward great rewards simply by reading email, shopping online,
+		touring web sites and more. <br><b><i><font color="red" size="-2">Get 500 Np when you reply to the confirmation email.</font></i></b>
+               </td>
+             </tr>
+           </tbody></table> 
+-->
+
+      <table width="480">
+        <tbody><tr>
+          <td align="center">
+            <hr width="50%" size="1" noshade="">
+	    <br>
+            <input type="submit" value="Continue">
+          </td>
+        </tr>
+      </tbody></table>
+
+      </p></form>
+
+
+    </td>
+    <td align="right" valign="top" background="/images/images/yellow_table_right.gif"></td>
+  </tr>
+  <tr>
+    <td height="10" width="50%"><img src="/images/images/table_bottom_left.gif" width="12" height="10"></td>
+    <td valign="bottom"><img src="/images/images/table_bottom.gif" width="480" height="10"></td>
+     <td height="10"><img src="/images/images/table_bottom_right.gif" width="12" height="10"></td>
+  </tr>
+</tbody></table>
+<!--footer-->
+
+
+
+
+<?php } else {
+		header("Location: /index.phtml");
+	}?>
+</td>
+</tr> </tbody></table>
+<!-- This is the start of the footer file -->
+</td></tr>
+</tbody></table><br clear="all">
+
+<?php require("inc/bottom.php"); ?>
+<br clear="all"><br>
+
+<!--
+     FILE ARCHIVED ON 05:50:00 Feb 01, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:33:41 Feb 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.646
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.032
+  esindex: 0.009
+  cdx.remote: 29.904
+  LoadShardBlock: 300.959 (3)
+  PetaboxLoader3.resolve: 210.62 (4)
+  PetaboxLoader3.datanode: 151.002 (4)
+  load_resource: 165.766
+  nav: 0.243 (6)
+--></body></html>
+	

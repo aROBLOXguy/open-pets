@@ -1,0 +1,65 @@
+<td valign="top" width="560">
+
+ 
+<!-- This is the end of the template file, just before we include the global prefs file --><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr align="right"> 
+    <td><img src="/images/images/header/header_oops.gif" width="480" height="62" alt="Oops, you dont appear to have logged on!"></td>
+  </tr>
+</tbody></table><br clear="all"><p>
+
+</p><center>
+<b>Oops!</b> You cannot view this page because you are not logged in, or perhaps you have not created an account yet!
+<p>
+<img src="/images/pets/angry/chia_blue_baby.gif" width="150" height="150" border="0">
+</p></center>
+<p>
+
+
+</p><form action="/login.phtml" method="post">
+<table align="center" width="300" cellpadding="4" cellspacing="0">
+<input type="hidden" name="destination" value="<?=$_SERVER['PHP_SELF']?>"><tbody><tr><td bgcolor="#eeeeff">
+<b>Username</b>
+</td><td bgcolor="#aaaaff">
+<input type="text" name="username" value="" size="10" maxlength="20" onfocus="this.select()"></td></tr>
+
+<tr><td bgcolor="#eeeeff">
+<b>Password</b>
+</td><td bgcolor="#aaaaff">
+<input type="password" name="password" value="" size="10" maxlength="20" onfocus="this.select()"></td></tr>
+
+<tr><td bgcolor="#eeeeff">
+<b>Remember my User Name/Password?</b>
+</td><td bgcolor="#aaaaff" valign="center">
+<input type="checkbox" name="userpass"></td></tr>
+
+<tr><td align="center" colspan="2" bgcolor="#ccccff">
+<input type="submit" value="Log In to NeoPets!">
+</td></tr>
+
+</tbody></table>
+</form>
+
+
+<p>
+</p><form action="/forgotpassword.phtml">
+<center>
+<b>Forgotten your password?</b>
+<br>
+Enter your <i>username</i> in the box below and we will email your password
+to you.
+<p>
+
+<input type="text" name="form_username" size="12" maxlength="20">
+<input type="submit" value="Go!">
+
+</p>
+</center></form>
+
+
+
+
+Otherwise, why not sign up by clicking <a href="/signup_age.phtml"><b>here!</b></a>
+<br><br>
+
+<!-- This is the start of the footer file -->
+</td>

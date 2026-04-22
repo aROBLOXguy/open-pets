@@ -1,0 +1,129 @@
+<?php
+require('inc/config.inc.php');
+if (!isset($_SESSION["username"])) {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+	// get shit 
+	$user = htmlspecialchars($_POST["username"]);
+	$mail = htmlspecialchars($_POST["email"]);
+	$pass = htmlspecialchars($_POST["pass1"]);
+	$confpass = htmlspecialchars($_POST["pass2"]);
+	$m = $_POST["month"];
+	$d = $_POST["day"];
+	$y = $_POST["year"];
+	$country = htmlspecialchars($_POST["country"]);
+	if (isset($_POST["formname"])) {
+		$type = "u18";
+	} else {
+		$type = "18+";
+	}
+	if (isset($_POST["gender"])) {
+		$gender = $_POST["gender"];
+	} else {
+		$gender = "Other";
+	}
+	$errarr = array();
+	
+	//this is to check eeevvvveeeerrrryyyyttttthhhhiiiinnnngggg
+	$checkuser = $db->prepare("SELECT `username` FROM `users` WHERE `username` = ?");
+	$checkuser->bind_param("s", $user);
+	$checkuser->execute();
+	$checkuresult = $checkuser->get_result();
+	$checkuresult2 = mysqli_num_rows($checkuresult);
+	if ($checkuresult2 > 0) {
+		array_push($errarr, 'Username taken!');
+	}
+	$checkuser->close();
+	$checkuresult->close();
+	
+	
+	
+	if (strlen($user) > 20 or strlen($user) == 0) {
+		//username too long or nothing
+		array_push($errarr, 'Username was too long or short!');
+	}
+
+	if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+		//email check fail	
+		array_push($errarr, 'Email isnt full!');
+	}
+	
+	if($mail == null or $pass == null or $confpass == null or $country == null) {
+		//null check fail
+		array_push($errarr, 'One or more areas weren&apos;t filled in');
+	}
+	
+	if ($pass != $confpass) {
+		//passwords no match
+		array_push($errarr, 'Passwords do not match!');
+	}
+		
+	if (ctype_alpha($pass) == true) {
+		//password only contains alphabet
+		array_push($errarr, 'Your password can&apos;t all be letters. Please add numbers or any of these characters');
+	}
+		
+	if (is_numeric($pass) == true) {
+		//password only contains numerals
+		array_push($errarr, 'Your password can&apos;t all be numbers. Please add letters.');
+	}
+	
+	if (!is_numeric($m) or !is_numeric($d) or !is_numeric($y)) {
+		// birthday not numeric
+		array_push($errarr, 'Birthday must be numeric!');
+	}
+		
+	if (!array_keys($errarr)) {
+		$birthday = $y."-". $m . "-" . $d;
+		$newpass = password_hash($pass, PASSWORD_BCRYPT);
+		$createdat = date("Y-m-d");
+		$lastlogin = date("Y-m-d G:i:s");
+		
+		// type chart
+		// 0 = banned/frozen
+		// 1 = regular
+		// 2 = paying
+		// 3 = moderator
+		// 4 = admins
+		// 5 = owner
+		$usertype = 1;
+		
+		$actcode = rand(0, 9).rand(0, 9).rand(0, 9).rand(0, 9).rand(0, 9);
+		echo $actcode;
+		
+		var_dump($_POST);
+		$sql = "INSERT INTO `users`(`username`, `type`, `email`, `password`, `country`, `gender`, `createdat`, `lastlogin`, `birthday`, `activation`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		if($query = $db->prepare($sql)) { // assuming $mysqli is the connection
+			$query->bind_param("sissssssss", $user, $usertype, $mail, $newpass, $country, $gender, $createdat, $lastlogin, $birthday, $actcode);
+			$query->execute();
+			$_SESSION['username'] = $user;
+			header('Location: /createpet.phtml');
+		} else {
+			$error = $db->errno . ' ' . $db->error;
+			echo $error; // 1054 Unknown column 'foo' in 'field list'
+		}
+		
+	} else {
+		echo '<img src="/images/images/error_title.gif" alt="oh dear...">';
+		foreach ($errarr as $key => $value) {?>
+				<p><b>Error <?=$key+1?> :</b> <?=$value?></p>
+			<?php	
+			}
+			echo '<p><a href="javascript:history.back()"><img border="0" alt="click here to fix the errors" src="/images/images/error_back.gif"></a></p>';
+		}
+	
+} else {
+	die('
+	<img src="/images/images/error_title.gif" alt="oh dear...">
+	<p><b>Error :</b> Sorry, you have come here from the wrong page</p>
+	<p><a href="javascript:history.back()"><img border="0" alt="click here to fix the errors" src="/images/images/error_back.gif"></a></p>
+	');
+}
+} else {
+	die('
+	<img src="/images/images/error_title.gif" alt="oh dear...">
+	<p><b>Error :</b> Sorry, you have come here from the wrong page</p>
+	<p><a href="javascript:history.back()"><img border="0" alt="click here to fix the errors" src="/images/images/error_back.gif"></a></p>
+	');
+}
+
+?>

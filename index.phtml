@@ -1,0 +1,227 @@
+<?php
+	require_once("inc/config.inc.php");
+	$pageheader = "Welcome to $branding!";
+ ?>
+<html style="--wm-toolbar-height: 68px;">
+<?php require_once("inc/head.php"); ?>
+
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" onload="MM_preloadImages('/images/images/menu/menu_chat_on.gif', '/images/images/menu/menu_store_on.gif', '/images/images/menu/menu_create_on.gif', '/images/images/menu/menu_games_on.gif', '/images/images/menu/menu_help_on.gif', '/images/images/menu/menu_login_on.gif', '/images/images/menu/menu_logout_on.gif',
+ '/images/images/menu/menu_messages_on.gif',
+ '/images/images/menu/menu_news_on.gif',
+ '/images/images/menu/menu_petcentral_on.gif',
+ '/images/images/menu/menu_prefs_on.gif',
+ '/images/images/menu/menu_shops_on.gif',
+ '/images/images/menu/menu_world_on.gif', 
+ '/images/images/menu/menu_explore_on.gif', 
+ '/images/images/menu/menu_neodrive_on.gif');">
+ 
+
+<?php require("inc/navtop.php"); ?>
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
+<tbody><tr>
+
+<?php require("inc/sidenav.php");?>
+
+<td valign="top" width="560">
+
+<!-- This is the end of the template file, just before we include the global prefs file -->
+<!--This diplays the Roll Over NeoPets logo-->
+<table width="560" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td width="400" valign="top">
+
+<script language="JavaScript">
+<!--
+function MM2_swapImgRestore() { //v3.0
+  var i,x,a=document.MM2_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM2_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM2_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM2_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM2_findObj(n,d.layers[i].document); return x;
+}
+
+function MM2_swapImage() { //v3.0
+  var i,j=0,x,a=MM2_swapImage.arguments; document.MM2_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM2_findObj(a[i]))!=null){document.MM2_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+
+<center><a href="#" onmouseout="MM2_swapImgRestore()" onmouseover="MM2_swapImage('Image1','','http://images.neopets.com/images/frontpage/title_faerie.gif',1)">
+<img name="Image1" border="0" src="/images/images/titlestill.gif" width="377" height="128" alt="Welcome to NeoPets"></a></center>
+
+<!-- This is the end of the Roll Over NeoPets Logo code-->
+
+<!-- This is the main text on the front page - DO NOT EDIT-->
+
+<p><b><?=$branding?>.Com ™</b> is the greatest Virtual Pet Site on the Internet.          
+With your help, we intend to build a community of virtual pet owners,          
+and offer cool things such as games, auctions, shops, postcards, and much, much more. 
+Best of all, it's completely <b>FREE!</b> </p>        
+
+<!-- This is the Newsflash Section-->
+<hr width="200" size="1" noshade=""><br>
+<table width="400" border="0" cellspacing="0" cellpadding="6"><tbody><tr>
+<td bgcolor="ffffee" width="200" valign="top">
+<p>
+<img src="/images/images/newsflash.gif" width="188" height="50"><br>
+
+<!-- This is the headline - no more than 4 words-->
+</p><center><b>Earth Faerie Aces</b>
+<p>
+
+<!--This is the 150 by 150 image and the link-->
+<a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/games/earthfaerieaces.phtml">
+<img src="https://web.archive.org/web/20010201055000im_/http://images.neopets.com/games/earthfaerieaces.gif" width="150" height="150" border="0"></a>
+</p></center>
+<!-- This is the main text of the newsflash -->
+
+<p>
+<font size="1"><b>Two Player Battle!</b></font>
+<br>
+<font size="1">
+Battle it out in the garden of the Earth Faerie by feeding the giant plants from your
+spaceships!  Confused?  Click <a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/frontpage/earthfaerieaces.phtml"><b><font size="1">here</font></b></a>!!
+
+</font></p><p><font size="1">
+<font size="1"><b>Win Thousands!</b></font>
+<br>
+<font size="1">
+Yes, Poogle Racing has arrived, and you can win big money!  Click 
+<a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/faerieland/poogleracing.phtml"><b><font size="1">here</font></b></a> 
+to play!
+
+</font></font></p><p><font size="1"><font size="1">
+<font size="1"><b>FAERIELAND</b></font><br>
+<font size="1">
+Its the latest, greatest new land to visit.  Why not show
+your <?=$branding?> the wonders of the Faerie realm?  Try your chances at the Wheel of Excitement or have a day at the
+races.  Then you can spend an enjoyable afternoon strolling around the picturesque city and doing a spot of bargain
+hunting in the local shops.  Click <a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/faerieland/index.phtml"><font size="1"><b>here</b></font></a> to travel to Faerieland now!
+
+
+<!--This is the end of the Newsflash section-->
+
+
+<img src="https://web.archive.org/web/20010201055000im_/http://images.neopets.com/images/blank.gif" width="2" height="5" border="0"><br>            
+</font></font></font></p></td>   
+
+<!--This displays the sign up button -->
+<td align="left" width="200" valign="top">  		  
+
+<p align="center"><a href="signup_age.phtml"><img src="/images/images/frontpage/signup_button.gif" width="190" height="70" border="0" alt="Click here to sign up with <?=$branding?>"></a>
+</p><p><font size="1">
+Sign up with <?=$branding?> today!  It's simple, fast and FREE!
+</font></p>
+
+<hr noshade="" size="1">
+<center><a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/gameroom.phtml"><img src="https://web.archive.org/web/20010201055000im_/http://images.neopets.com/games/great1.gif" width="69" height="59" border="0"></a></center>
+<table width="190" border="0" cellspacing="0" cellpadding="0">
+ <tbody><tr>
+    <td width="14%">
+      <div align="center"><a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/games/dicearoo.phtml"><img src="https://web.archive.org/web/20010201055000im_/http://images.neopets.com/games/dice3.gif" width="40" height="40" border="0"></a></div>
+    </td>
+    <td width="86%"><a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/games/dicearoo.phtml"><font size="1"><b>Dice-A-Roo</b></font></a><font size="1"> - The coolest dice game around!</font></td>
+  </tr>
+  <tr>
+    <td width="14%">
+      <div align="center"><a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/games/slots.phtml"><img src="https://web.archive.org/web/20010201055000im_/http://images.neopets.com/games/glow.gif" width="40" height="40" border="0"></a></div>
+    </td>
+    <td width="86%"><a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/games/slots.phtml"><font size="1"><b>Scorchy Slots</b></font></a><font size="1"> - Can you win the Jackpot?</font></td>
+  </tr>
+  <tr>
+    <td width="14%">
+      <div align="center"><a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/space/gormball.phtml"><img src="https://web.archive.org/web/20010201055000im_/http://images.neopets.com/games/gormball.gif" width="40" height="40" border="0"></a></div>
+    </td>
+    <td width="86%"><a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/space/gormball.phtml"><font size="1"><b>Gormball</b></font></a><font size="1"> - It's the great new craze!</font></td>
+  </tr>
+</tbody></table>
+
+<!--
+<hr noshade size=1>
+<div align="center">
+<a href="http://www.neopets.com/island/sacrificers.phtml">
+<img src="http://images.neopets.com/buttons/butt_sacr3.gif" border="0">
+</a><br>
+<font size=1>One staff member must go each week! It's up to you to decide who...</font></div>
+-->
+
+<hr noshade="" size="1">
+<a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/screensavers.phtml">
+<img src="https://web.archive.org/web/20010201055000im_/http://images.neopets.com/images/frontpage/ss_left.gif" width="67" height="70" border="0" align="left">
+</a>
+<font size="1">Download some great</font>
+ <a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/screensavers.phtml"><font size="1"><b>NeoPets Screen Savers</b></font></a>!<br>
+<font size="1">and <a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/backgrounds.phtml"><font size="1"><b>Cool Backgrounds</b></font></a>!</font> 
+<br clear="all"> 
+
+<hr noshade="" size="1">  
+<center>
+<a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/discountcard.phtml">  
+<img src="https://web.archive.org/web/20010201055000im_/http://images.neopets.com/images/sm_discountcard.gif" border="0" width="63" height="45"></a><br>
+<font size="1">
+Get your FREE NeoPets Discount Card now - money off in all the main Neopian Shops!
+
+<hr noshade="" size="1">  
+<center>
+<a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/stockmarket.phtml">  
+<img src="https://web.archive.org/web/20010201055000im_/http://images.neopets.com/images/neodaq.gif" border="0" width="60" height="40"></a><br>
+
+Neodaq Index : <b>135</b> <font color="red"><b>(-5)</b></font></center>
+
+<hr noshade="" size="1">
+<center>
+<a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/neocam.phtml">  
+<img src="https://web.archive.org/web/20010201055000im_/http://images.neopets.com/buttons/butt_neocam.gif" border="0"></a><br>
+<font size="1">Check out what we really look like with the <a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/neocam.phtml"><b><font size="1">NeoCam</font></b></a></font><a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/neocam.phtml"><b>
+</b></a></center><a href="https://web.archive.org/web/20010201055000/http://www.neopets.com/neocam.phtml"><b> 
+<br>                       
+</b></a></font></center></td>         
+</tr>       
+</tbody></table>         
+</td><td width="160" valign="top">        
+
+
+
+
+<?php require("inc/news.php"); ?>
+</td> </tr> </tbody></table>
+<!-- This is the start of the footer file -->
+</td></tr>
+</tbody></table><br clear="all">
+
+<?php require("inc/bottom.php"); ?>
+<br clear="all"><br>
+
+<!--
+     FILE ARCHIVED ON 05:50:00 Feb 01, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:33:41 Feb 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.646
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.032
+  esindex: 0.009
+  cdx.remote: 29.904
+  LoadShardBlock: 300.959 (3)
+  PetaboxLoader3.resolve: 210.62 (4)
+  PetaboxLoader3.datanode: 151.002 (4)
+  load_resource: 165.766
+  nav: 0.243 (6)
+--></body></html>

@@ -1,0 +1,82 @@
+<?php 
+	require_once("inc/config.inc.php");
+	
+	var_dump($_POST);
+	
+	$colorarray = [
+		"1" => "red",
+		"2" => "yellow",
+		"3" => "green",
+		"4" => "blue"
+	];
+	
+	$owner = $_SESSION["username"];
+	$species = htmlspecialchars($_POST["species"]);
+	$petname = htmlspecialchars($_POST["petname"]);
+	$color = htmlspecialchars($_POST["colour"]);
+	$gender = htmlspecialchars($_POST["gender"]);
+	$lives = htmlspecialchars($_POST["lives"]);
+	$does = htmlspecialchars($_POST["does"]);
+	$greeting = htmlspecialchars($_POST["greeting"]);
+	$created = date("Y-m-d G:i:s");
+	$level = 1;
+	$mood = 10;
+	$int = '{"items": []}';
+	
+	if(!is_numeric($greeting) or !is_numeric($does) or !is_numeric($lives)) {
+		die("one thing isnt numeric");
+	}
+	
+	if (array_search($color, $colorarray) == false) {
+		die("color is wrong");
+	}
+	
+	if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $petname)) {
+		die("special chars found");
+	}
+	//
+	// Array of Bad words
+	$words = array('fuck','shit','damn','ass', 'fag', 'faggot', 'nig', 'nigger', 'chink', 'coon');
+	// Array of extention to words
+	$exten = array('','ed','ing','s','let', 'coon');
+	// Input string
+	$str = $petname;
+	// Create an array from input
+	$string = explode(' ',strtolower($str));
+	// Create a new array for all combinations of swear words
+	$wordList = array();
+	// Add all combinations to the new array
+	foreach($words as $word){
+		foreach($exten as $ext){
+			$wordList[] = $word.$ext;
+		}
+	}
+	// Loop through each input word, and check if it is a bad word or not
+	// FALSE = Good Words
+	// TRUE = Bad Words
+	$badWord = FALSE;
+	foreach($string as $s){
+		if(in_array($s, $wordList)){
+			$badWord = TRUE;
+		}
+	}
+	// Do something if output is good or bad in this case display a message
+	if($badWord) {
+		die('This input contains inapropriate content');
+	}
+	//
+	
+	//$stmt = $db->prepare("INSERT INTO `pets`(`owner`, `name`, `species`, `color`, `gender`, `lives`, `does`, `greeting`, `created`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+	//$stmt->bind_param("sssssiiis", $owner, $petname, $species, $color, $gender, $lives, $does, $greeting, $created);
+	//$stmt->execute();
+	
+	$sql = "INSERT INTO `pets`(`owner`, `name`, `species`, `color`, `gender`, `lives`, `does`, `greeting`, `created`, `level`, `mood`, `intelligence`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	if($query = $db->prepare($sql)) {
+		$query->bind_param("sssssiiisiis", $owner, $petname, $species, $color, $gender, $lives, $does, $greeting, $created, $level, $mood, $int);
+		$query->execute();
+		header("Location: /quickref.phtml");
+	} else {
+		$error = $db->errno . ' ' . $db ->error;
+		echo $error; // 1054 Unknown column 'foo' in 'field list'
+	}
+?>

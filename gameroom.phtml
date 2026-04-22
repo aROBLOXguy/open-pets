@@ -1,0 +1,179 @@
+<?php
+	require_once("inc/config.inc.php");
+	$pageheader = "$branding - Pet Central";
+ ?>
+<html style="--wm-toolbar-height: 68px;">
+<?php require_once("inc/head.php"); ?>
+
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" >
+ 
+
+<?php require("inc/navtop.php"); ?>
+
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="700">
+<tbody><tr>
+
+<?php require("inc/sidenav.php");?>
+<td valign="top" width="560"><!--x-->
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr align="right"> 
+				<td><img src="/images/headers/gamesroom.gif" width="480" height="62" alt="<?=$branding?> Games - Play with your <?=$brandingsingle?>!"></td>
+			</tr>
+		</tbody>
+	</table>
+	<br clear="all">
+	<p><a href="gameroom.phtml"><b><?=$branding?> Games</b></a></p>
+	<p></p>
+	<form action="gameroom.phtml" method="post">
+	This is our new, easier way of finding games.  Either click on one of the four categories below,
+	or type in the game you wish to play in the box.  For instance, if you want to play <b>Gormball</b>
+	you could try typing 'ball'.  If you fancy a challenge, try typing in '<b>Solitaire</b>' or '<b>Korbat</b>'.
+		<p>
+			<b>Search for Game : </b>
+			<input type="text" name="search" size="12" maxlength="20">
+			<input type="submit" value="Go!">
+		</p>
+	</form>
+	
+	<?PHP if (isset($_GET["game_type"])) { ?>
+	<p>
+		<table align="center" cellpadding="0" cellspacing="0" border="0">
+			<tbody>
+				<tr>
+					<td width="170" height="185" valign="center" align="center">
+						<table align="center" width="150" border="1" height="150" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td width="100" height="100">
+										<a href="/games/armada/index.phtml">
+											<img src="/images/new_games/n18.gif" width="100" height="100" border="0">
+										</a>
+									</td>
+									<td width="50" height="100" align="center" valign="center">
+										<img src="/images/new_games/type2.gif" width="50" height="50" border="0">
+										<img src="/images/new_games/age2.gif" width="50" height="50" border="0">
+									</td>
+								</tr>
+								<tr>
+									<td width="150" valign="center" height="35" align="center" colspan="2">
+										<b>Armada</b>
+									</td>
+								</tr>
+								<tr>
+									<td width="150" height="30" colspan="2" align="center" valign="center">
+										<a href="/games/armada/index.phtml"><img src="/images/new_games/new_play.gif" width="75" height="30" border="0"></a><a href="javascript:;" onclick="window.open('new_gamehelp.phtml?game_id=18', 'newwin', 'height=300,width=300,scrolling=no'); return false;"><img src="/images/new_games/new_info.gif" width="75" height="30" border="0"></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</p>
+	
+	<center>
+		<form action="gameroom.phtml" method="post">
+			<input type="submit" value="Back to Games Room">
+		</form>
+<!--footer-->
+	</center>
+	<?php } else { ?>
+	<p>
+</p><p>
+
+<table width="425" border="0" align="center">
+  <tbody><tr>
+    <td><a href="gameroom.phtml?game_type=2">
+    <img src="/images/games/game_puzzles.gif" width="200" height="200" border="0" alt="Test your wits!"></a></td>
+    <td><a href="gameroom.phtml?game_type=0">
+    <img src="/images/games/game_sm_action.gif" width="200" height="200" border="0" alt="Are you brave enough?"></a></td>
+  </tr>
+  <tr>
+    <td><a href="gameroom.phtml?game_type=1">
+    <img src="/images/games/game_luck.gif" width="200" height="200" border="0" alt="Feeling Lucky, Punk?"></a></td>
+    <td><a href="/games/fuzzles.phtml">
+    <img src="/images/games/game_smfeature.gif" width="200" height="200" border="0"></a></td>
+  </tr>
+</tbody></table>
+</p><p>
+</p><center>
+<hr noshade="" width="200">
+</center>
+
+<p>
+<table align="center" cellpadding="5" cellspacing="0" border="0">
+<tbody><tr>
+<td align="center">
+<a href="https://webarchive.loc.gov/all/20020813122121/http://www.neopets.com/stockmarket.phtml">
+<img src="/images/games/game_stocks.gif" width="80" height="80" border="0" alt="The Neopian Stock Market"></a>
+
+</td>
+
+<td align="center">
+<a href="https://webarchive.loc.gov/all/20020813122121/http://www.neopets.com/prizes.phtml">
+<img src="/images /games/trophies/trophy_beauty_1.gif" width="80" height="80" border="0" alt="Your NeoPet's Prizes"></a>
+</td>
+
+<td align="center">
+<a href="https://webarchive.loc.gov/all/20020813122121/http://www.neopets.com/battledome.phtml?battle_location=0">
+<img src="/images/games/game_battle.gif" width="80" height="80" border="0" alt="The Neopets Battledome"></a>
+</td>
+
+<td align="center">
+<a href="https://webarchive.loc.gov/all/20020813122121/http://www.neopets.com/gamescores.phtml">
+<img src="/images/games/game_hiscores.gif" width="80" height="80" border="0" alt="High Score Tables"></a>
+</td>
+
+<td align="center">
+<a href="https://webarchive.loc.gov/all/20020813122121/http://www.neopets.com/games/neodeck.phtml">
+<img src="/images/games/games_trading.gif" width="80" height="80" border="0" alt="Collectable Cards"></a>
+</td>
+</tr>
+
+<tr>
+<td align="center"><font size="1"><b>Stock<br>Market</b></font></td>
+<td align="center"><font size="1"><b>Trophy<br>Cabinet</b></font></td>
+<td align="center"><font size="1"><b>BATTLEDOME</b></font></td>
+<td align="center"><font size="1"><b>High-Score<br>Tables</b></font></td>
+<td align="center"><font size="1"><b>Collectable<br>Cards</b></font></td>
+</tr>
+
+</tbody></table>
+
+<!--footer-->
+</p></td></tr>
+	<?php }?>
+</td>
+</td>
+</tr> </tbody></table>
+<!-- This is the start of the footer file -->
+</td></tr>
+</tbody></table><br clear="all">
+
+<?php require("inc/bottom.php"); ?>
+<br clear="all"><br>
+
+<!--
+     FILE ARCHIVED ON 05:50:00 Feb 01, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:33:41 Feb 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.646
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.032
+  esindex: 0.009
+  cdx.remote: 29.904
+  LoadShardBlock: 300.959 (3)
+  PetaboxLoader3.resolve: 210.62 (4)
+  PetaboxLoader3.datanode: 151.002 (4)
+  load_resource: 165.766
+  nav: 0.243 (6)
+--></body></html>
+	

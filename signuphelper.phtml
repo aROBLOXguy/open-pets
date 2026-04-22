@@ -1,0 +1,31 @@
+<?php 
+require_once("inc/config.inc.php");
+require_once("inc/pets.php");
+$getspecies = $_GET["species"];
+?>
+<img src="">
+<form action="" type="post" >
+<select>
+	<?php foreach ($petslist as $key => $value) {
+		
+		if ($_GET["species"] == $value) {
+			$selected = 'selected="fuck you"';
+		} else {
+			$selected = '';
+		}
+		
+		echo '<option value="' . $key . '"' . $selected . '>' . $value . '</option>';
+}?>
+</select>
+
+<input type="radio" id="blue" name="color" value="blue">
+<label for="blue">blue</label><br>
+<input type="radio" id="red" name="color" value="red">
+<label for="red">red</label><br>
+<input type="radio" id="yellow" name="color" value="yellow" checked="" >
+<label for="yellow">yellow</label><br>
+
+<label for="name">name ur pet</label>
+<input type="text" name="name"><br>
+<input type="submit" value="create">
+</form>
